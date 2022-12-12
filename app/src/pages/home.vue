@@ -39,7 +39,6 @@
 
 <script setup>
 import { ref } from "vue";
-import { MglMap, MglNavigationControl } from "vue-maplibre-gl";
 
 let search = ref("");
 let coordinates = ref([7.6232, 51.0066]);
