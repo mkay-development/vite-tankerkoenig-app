@@ -23,7 +23,7 @@
         <option value="25">25km</option>
       </select>
     </div>
-    <div class="col-span-6 md:col-span-6">
+    <div class="col-span-6">
       <h2 class="block mb-2 font-bold">Suche</h2>
       <input
         type="text"
@@ -51,11 +51,9 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
-import { useBrowserLocation } from "@vueuse/core";
+import { ref } from "vue";
 
 let search = ref("");
-let coordinates = ref([7.6232, 51.0066]);
 let typ = ref("benzin");
 let radius = ref(5);
 let errorStr = ref("");
@@ -81,7 +79,4 @@ let getLocation = function(){
     }
   );
 }
-
-onMounted(function () {
-});
 </script>
