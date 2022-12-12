@@ -10,9 +10,10 @@
     </div>
     <div class="col-span-6 mt-8 md:col-span-1">
       <button
+        @click="getLocation()"
         class="flex items-center justify-center w-full h-10 px-2 py-2 bg-gray-400"
       >
-        <fa icon="location-crosshairs" @click="getLocation()" />
+        <fa icon="location-crosshairs" />
       </button>
     </div>
     <div class="col-span-6 md:col-span-3">
@@ -60,7 +61,7 @@ let errorStr = ref("");
 let gettingLocation = ref(false);
 let location = ref(null);
 
-let getLocation = function(){
+let getLocation = function () {
   if (!("geolocation" in navigator)) {
     errorStr.value = "Geolocation is not available.";
     return;
@@ -78,5 +79,5 @@ let getLocation = function(){
       errorStr.value = err.message;
     }
   );
-}
+};
 </script>
