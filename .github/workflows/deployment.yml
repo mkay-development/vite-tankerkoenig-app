@@ -15,4 +15,4 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-                    cd /var/www/tanken.mkay-developement.de/app && yarn build
+                    cd /var/www/tanken.mkay-development.de/app && yarn build
