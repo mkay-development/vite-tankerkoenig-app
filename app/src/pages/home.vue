@@ -12,12 +12,12 @@
       <button
         class="flex items-center justify-center w-full h-10 px-2 py-2 bg-gray-400"
       >
-        <fa icon="location-crosshairs" />
+        <fa icon="location-crosshairs" @click="getLocation()" />
       </button>
     </div>
     <div class="col-span-3">
       <h2 class="block mb-2 font-bold">Radius</h2>
-      <select v-model="typ" class="w-full h-10 px-2 py-2 bg-gray-400">
+      <select v-model="radius" class="w-full h-10 px-2 py-2 bg-gray-400">
         <option value="5">5km</option>
         <option value="10">10km</option>
         <option value="25">25km</option>
@@ -56,11 +56,12 @@ import { useBrowserLocation } from "@vueuse/core";
 let search = ref("");
 let coordinates = ref([7.6232, 51.0066]);
 let typ = ref("benzin");
+let radius = ref(5);
 let errorStr = ref("");
 let gettingLocation = ref(false);
 let location = ref(null);
 
-onMounted(function () {
+let getLocation = function(){
   if (!("geolocation" in navigator)) {
     errorStr.value = "Geolocation is not available.";
     return;
@@ -78,5 +79,8 @@ onMounted(function () {
       errorStr.value = err.message;
     }
   );
+}
+
+onMounted(function () {
 });
 </script>
