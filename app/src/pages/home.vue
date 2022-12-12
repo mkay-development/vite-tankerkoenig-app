@@ -33,14 +33,50 @@
     </div>
     <div class="col-span-12 map">
       Placeholder for Map
+      <div v-if="errorStr">
+        Sorry, but the following error occurred: {{ errorStr }}
+      </div>
+
+      <div v-if="gettingLocation">
+        <i>Getting your location...</i>
+      </div>
+
+      <div v-if="location">
+        Your location data is {{ location.coords.latitude }},
+        {{ location.coords.longitude }}
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import { useBrowserLocation } from "@vueuse/core";
 
 let search = ref("");
 let coordinates = ref([7.6232, 51.0066]);
 let typ = ref("benzin");
+let errorStr = ref("");
+let gettingLocation = ref(false);
+let location = ref(null);
+
+onMounted(function () {
+  if (!("geolocation" in navigator)) {
+    errorStr.value = "Geolocation is not available.";
+    return;
+  }
+
+  gettingLocation.value = true;
+  // get position
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      gettingLocation.value = false;
+      location.value = pos;
+    },
+    (err) => {
+      gettingLocation.value = false;
+      errorStr.value = err.message;
+    }
+  );
+});
 </script>
