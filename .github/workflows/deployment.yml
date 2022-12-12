@@ -8,8 +8,6 @@ jobs:
     name: Deployment
     runs-on: ubuntu-latest
     steps:
-    - name: 🛎 Checkout
-      uses: actions/checkout@v2
     - name: executing remote ssh commands using private key
       uses: appleboy/ssh-action@master
       with:
@@ -17,4 +15,4 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-                    cd /var/www/tanken.mkay-development.de/app && yarn build
+                    git pull && cd /var/www/tanken.mkay-development.de/app && yarn build
