@@ -32,12 +32,7 @@
       />
     </div>
     <div class="col-span-12 map">
-      <mgl-map
-        mapStyle="https://api.maptiler.com/maps/streets/style.json?key=5YZK3ztKcnwXxdKl2TNi"
-        :zoom="14"
-        :center="[16.62662018, 49.2125578]"
-      >
-      </mgl-map>
+      Placeholder for Map
     </div>
   </div>
 </template>
