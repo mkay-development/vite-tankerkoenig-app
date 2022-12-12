@@ -1,19 +1,18 @@
-name: remote ssh command
+name: Remote update execution
 on:
   push:
     branches:
       - master
-branches:
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@v0.1.6
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: cd /var&www/tanken.mkay-development.de/app && yarn build
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+                    cd /var/www/tanken.mkay-developement.de/app && yarn build
