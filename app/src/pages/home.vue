@@ -44,24 +44,3 @@ let search = ref("");
 let coordinates = ref([7.6232, 51.0066]);
 let typ = ref("benzin");
 </script>
-
-<style lang="scss">
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-.map {
-  width: 100%;
-  height: 100vh;
-}
-</style>
