@@ -8,4 +8,4 @@ jobs:
     - name: Install modules
       run: cd app && yarn
     - name: Run ESLint
-      run: cd app && eslint . --ext .js,.ts,.vue
+      run: cd app && yarn lint
