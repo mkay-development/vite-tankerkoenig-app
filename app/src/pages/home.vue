@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-12 gap-3">
-    <div class="col-span-2">
+    <div class="col-span-6 md:col-span-2">
       <h2 class="block mb-2 font-bold">Typ</h2>
       <select v-model="typ" class="w-full h-10 px-2 py-2 bg-gray-400">
         <option value="benzin">Benzin</option>
@@ -8,14 +8,14 @@
         <option value="diesel">Diesel</option>
       </select>
     </div>
-    <div class="col-span-1 md:mt-8">
+    <div class="col-span-6 mt-8 md:col-span-1">
       <button
         class="flex items-center justify-center w-full h-10 px-2 py-2 bg-gray-400"
       >
         <fa icon="location-crosshairs" @click="getLocation()" />
       </button>
     </div>
-    <div class="col-span-3">
+    <div class="col-span-6 md:col-span-3">
       <h2 class="block mb-2 font-bold">Radius</h2>
       <select v-model="radius" class="w-full h-10 px-2 py-2 bg-gray-400">
         <option value="5">5km</option>
@@ -23,11 +23,12 @@
         <option value="25">25km</option>
       </select>
     </div>
-    <div class="col-span-6">
+    <div class="col-span-6 md:col-span-6">
       <h2 class="block mb-2 font-bold">Suche</h2>
       <input
         type="text"
         v-model="search"
+        placeholder="Stadt oder PLZ"
         class="w-full h-10 px-2 py-2 bg-gray-400"
       />
     </div>
