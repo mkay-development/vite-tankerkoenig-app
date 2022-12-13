@@ -13,7 +13,6 @@ import { faPlus, faEdit, faBars, faLocationCrosshairs } from '@fortawesome/free-
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 import plausible from './plugins/plausible';
-import Vue3Notify from '@jonathan-martz/vue3-notify';
 
 library.add(faEdit, faPlus, faBars, faLocationCrosshairs);
 
