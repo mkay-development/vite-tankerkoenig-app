@@ -53,25 +53,16 @@
 </template>
 
 <script setup>
-import { onMounted, ref, inject, watch } from "vue";
+import { ref } from "vue";
 import { useVibrate } from "@vueuse/core";
 
-const { vibrate, stop, isSupported } = useVibrate({ pattern: [300, 100, 300] });
+const { vibrate } = useVibrate({ pattern: [300, 100, 300] });
 let search = ref("");
 let typ = ref("benzin");
 let radius = ref(5);
 let errorStr = ref("");
 let gettingLocation = ref(false);
 let location = ref(null);
-
-onMounted(function () {
-  vibrate();
-});
-
-watch(gettingLocation, function () {
-  vibrate();
-  console.log(isSupported);
-});
 
 let getLocation = function () {
   if (!("geolocation" in navigator)) {
@@ -80,7 +71,6 @@ let getLocation = function () {
   }
 
   gettingLocation.value = true;
-  // get position
   navigator.geolocation.getCurrentPosition(
     (pos) => {
       gettingLocation.value = false;
