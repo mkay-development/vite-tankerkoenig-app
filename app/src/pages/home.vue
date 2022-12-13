@@ -63,10 +63,8 @@ let radius = ref(5);
 let errorStr = ref("");
 let gettingLocation = ref(false);
 let location = ref(null);
-let notify = inject("notify");
 
 onMounted(function () {
-  // notify.add('test', 'Lorem Ipsum')
   vibrate();
 });
 
