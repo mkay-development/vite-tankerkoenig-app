@@ -35,6 +35,7 @@
     </div>
     <div class="col-span-12 map">
       Placeholder for Map
+      <button @click="requestPermissions()">req</button>
       <div v-if="errorStr">
         Sorry, but the following error occurred: {{ errorStr }}
       </div>
@@ -52,14 +53,27 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref, inject, watch } from "vue";
+import { useVibrate } from "@vueuse/core";
 
+const { vibrate, stop, isSupported } = useVibrate({ pattern: [300, 100, 300] });
 let search = ref("");
 let typ = ref("benzin");
 let radius = ref(5);
 let errorStr = ref("");
 let gettingLocation = ref(false);
 let location = ref(null);
+let notify = inject("notify");
+
+onMounted(function () {
+  // notify.add('test', 'Lorem Ipsum')
+  vibrate();
+});
+
+watch(gettingLocation, function () {
+  vibrate();
+  console.log(isSupported);
+});
 
 let getLocation = function () {
   if (!("geolocation" in navigator)) {
