@@ -33,5 +33,4 @@ pinia.use(({ store }) => {
   store.router = routes;
 });
 app.use(pinia);
-app.use(Vue3Notify);
 app.mount('#app');
