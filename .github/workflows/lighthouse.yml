@@ -15,4 +15,4 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
       - name: Get color
-        run: echo "The selected color is ${{ steps.lighthouse-ci-report.outputs }}"
+        run: echo "The selected color is ${{ steps.lighthouse-ci-report.outputs.links }}"
