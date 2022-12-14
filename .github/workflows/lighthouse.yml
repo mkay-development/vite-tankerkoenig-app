@@ -15,4 +15,4 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-                    cd /var/www/tanken.mkay-development.de/app && ./node_modules/lighthouse/lighthouse-cli/index.js https://tanken.mkay-development.de --quiet --chrome-flags="--headless" --output=html --output-path=./public/lighthouse.html
+                    cd /var/www/tanken.mkay-development.de/app && ./node_modules/lighthouse/lighthouse-cli/index.js https://tanken.mkay-development.de --quiet --chrome-flags="--headless --no-sandbox" --output=html --output-path=./public/lighthouse.html
