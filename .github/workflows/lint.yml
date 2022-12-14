@@ -1,4 +1,4 @@
-name: Deployment
+name: EsLint
 on:
   push:
     branches:
