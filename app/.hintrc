@@ -1,0 +1,7 @@
+{
+    "extends": [
+        "progressive-web-apps"
+    ],
+    "connector": "jsdom",
+    "formatters": ["html"]
+}

@@ -4386,7 +4386,7 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hint@7.1.3:
+hint@^7.1.3:
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/hint/-/hint-7.1.3.tgz#59e53d0024e56ab2bbd05d5ce4980993a665ebbc"
   integrity sha512-nJ86Lujiev7EWty7tDzlf0jVH3sn01vH4QMsvRG5+L1Xw+kz6HBJaExk6Y9/czpEImUAD7AxSfZ2wE9BA9sh6g==
