@@ -15,6 +15,7 @@
     "@fortawesome/vue-fontawesome": "^3.0",
     "less": "^4.1",
     "less-loader": "^11.0",
+    "lighthouse": "^9.6.8",
     "pinia": "^2.0",
     "plausible-tracker": "^0.3",
     "vue": "^3.2",

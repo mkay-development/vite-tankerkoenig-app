@@ -1,18 +1,18 @@
-name: Lighthouse CI
-on: push
+name: Lighthouse
+on:
+  push:
+    branches:
+      - master
 jobs:
   lighthouse:
+    name: Lighthouse
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v9
-        id: lighthouse-ci-report
-        with:
-          urls: |
-            https://tanken.mkay-development.de/
-          budgetPath: ./.github/budget.json
-          uploadArtifacts: true
-          temporaryPublicStorage: true
-      - name: Get color
-        run: echo "The selected color is ${{ steps.lighthouse-ci-report.outputs.links }}"
+    - name: executing remote ssh commands using private key
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+                    cd /var/www/tanken.mkay-development.de/app && ./node_modules/lighthouse/lighthouse-cli/index.js https://tanken.mkay-development.de --quiet --chrome-flags="--headless" --output=html --output-path=./public/lighthouse.html
