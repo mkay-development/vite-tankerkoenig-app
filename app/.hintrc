@@ -1,5 +1,6 @@
 {
     "extends": [
+        "web-recommended",
         "progressive-web-apps"
     ],
     "connector": "jsdom",
