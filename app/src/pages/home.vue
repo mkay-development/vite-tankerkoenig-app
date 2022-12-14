@@ -54,9 +54,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { useVibrate } from "@vueuse/core";
 
-const { vibrate } = useVibrate({ pattern: [300, 100, 300] });
 let search = ref("");
 let typ = ref("benzin");
 let radius = ref(5);
