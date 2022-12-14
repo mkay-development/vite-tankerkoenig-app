@@ -35,8 +35,7 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-                   cd /var/www/tanken.mkay-development.de/app && yarn && ./node_modules/hint/dist/src/bin/hint.js  https://tanken.mkay-development.de/ -o public && mv public/https-tanken-mkay-development-de.html public/webhint.html
-  
+                   cd /var/www/tanken.mkay-development.de/app && yarn && ./node_modules/hint/dist/src/bin/hint.js  https://tanken.mkay-development.de/ -o public && cd public && mv https-tanken-mkay-development-de.html webhint.html
   deployment:
     name: Deployment
     runs-on: ubuntu-latest
