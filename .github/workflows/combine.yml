@@ -24,6 +24,19 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
                     cd /var/www/tanken.mkay-development.de/app && ./node_modules/lighthouse/lighthouse-cli/index.js https://tanken.mkay-development.de --quiet --chrome-flags="--headless --no-sandbox" --output=html --output-path=./public/lighthouse.html
+  webhint:
+    name: Webhint
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using private key
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+                   cd /var/www/tanken.mkay-development.de/app && ./node_modules/hint/dist/src/bin/hint.js https://tanken.mkay-development.de/ -o public
+  
   deployment:
     name: Deployment
     runs-on: ubuntu-latest
