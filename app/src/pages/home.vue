@@ -61,13 +61,14 @@ let radius = ref(5);
 let errorStr = ref("");
 let gettingLocation = ref(false);
 let location = ref(null);
+let test = '';
 
 let getLocation = function () {
   if (!("geolocation" in navigator)) {
     errorStr.value = "Geolocation is not available.";
     return;
   }
-
+  
   gettingLocation.value = true;
   navigator.geolocation.getCurrentPosition(
     (pos) => {
